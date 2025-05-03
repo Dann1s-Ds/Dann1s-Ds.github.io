@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="music.html">Music</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+    <style>
+    .player-container {
+      display: flex;
+      gap: 30px;
+    }
+    
+    .music-card {
+      width: 400px;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .cover-art {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin: 0 auto;
+      animation: rotate 20s linear infinite;
+      animation-play-state: paused;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .controls {
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .playlist {
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 导航同首页 -->
+  <div class="content">
+    <h1>Music Player</h1>
+    <div class="player-container">
+      <div class="playlist" id="playlist"></div>
+      <div class="music-card">
+        <img src="images/cover1.jpg" class="cover-art" id="cover">
+        <div class="controls">
+          <button onclick="prevTrack()">◁</button>
+          <button onclick="togglePlay()">▶</button>
+          <button onclick="nextTrack()">▷</button>
+          <input type="range" id="progress" value="0">
+          <input type="range" id="volume" min="0" max="1" step="0.1" value="0.5">
+        </div>
+        <div id="lyrics"></div>
+      </div>
+    </div>
+    <audio id="player"></audio>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
